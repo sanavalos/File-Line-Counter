@@ -21,7 +21,7 @@ function countLines(data) {
   for (let i = 0; i < data.length; i++) {
     if (data[i].startsWith("/*")) {
       insideComment = true;
-    } else if (data[i].includes("*/")) {
+    } else if (insideComment && data[i].includes("*/")) {
       insideComment = false;
     } else if (
       !insideComment &&
